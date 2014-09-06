@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-
-    <title>柯P - 當選倒數日期</title>
+    <link rel="shortcut icon" href="http://unlimited.kptaipei.tw/favicon.ico?v=0821">
+    <title>柯P當選倒數日期</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -93,6 +92,19 @@
     <script src="assets/js/soon/plugins.js"></script>
     <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
     <script src="assets/js/soon/custom.js"></script>
+    <script>
+    var API_SERVER = "http://api.kptaipei.tw/v1/";
+    $.get(API_SERVER + "albums/?accessToken=kp540a65aa522d73.28756563&page=1&page_size=1", function(results) {
+
+        $.get(API_SERVER + "albums/" + results.data[0].id + "?accessToken=kp540a65aa522d73.28756563&page=1&page_size=4", function(images) {
+            $.each(images.data.photos, function(ind, item) {
+                $("#image").append("<li data-transition='slideleft' data-slotamount='1' data-thumb='" + item.images.small + "'><img src='" + item.images.small + "'></li>");
+
+            });
+
+        });
+    });
+    </script>
 </body>
 <!-- END BODY -->
 
