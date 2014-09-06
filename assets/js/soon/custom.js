@@ -6,7 +6,7 @@ COMMING SOON PAGE
     * Set your date here  (YEAR, MONTH (0 for January/11 for December), DAY, HOUR, MINUTE, SECOND)
     * according to the GMT+0 Timezone
     **/
-    var launch = new Date(2015, 06, 14, 11, 00);
+    var launch = new Date(2014, 10, 29, 18, 00);
     /**
     * The script
     **/
@@ -20,11 +20,11 @@ COMMING SOON PAGE
     function setDate(){
         var now = new Date();
         if( launch < now ){
-            days.html('<h1>0</H1><p>Day</p>');
-            hours.html('<h1>0</h1><p>Hour</p>');
-            minutes.html('<h1>0</h1><p>Minute</p>');
-            seconds.html('<h1>0</h1><p>Second</p>');
-            message.html('與其預測未來 不如領導未來');
+            days.html('<h1>0</H1><p>天</p>');
+            hours.html('<h1>0</h1><p>小時</p>');
+            minutes.html('<h1>0</h1><p>分鐘</p>');
+            seconds.html('<h1>0</h1><p>秒</p>');
+            message.html('與其預測未來　不如領導未來');
         }
         else{
             var s = -now.getTimezoneOffset()*60 + (launch.getTime() - now.getTime())/1000;
@@ -43,7 +43,7 @@ COMMING SOON PAGE
             seconds.html('<h1>'+s+'</h1><p>秒'+(s>1?'':''),'</p>');
             setTimeout(setDate, 1000);
 
-            message.html('與其預測未來 不如領導未來');
+            message.html('與其預測未來　不如領導未來');
         }
     }
 })(jQuery);
