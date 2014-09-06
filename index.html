@@ -98,16 +98,21 @@
         <script>
         var API_SERVER = "http://api.kptaipei.tw/v1/";
         var accessToken = "accessToken=kp540a65aa522d73.28756563";
-
-         //get the lastest album id
-        $.get(getLastestAlbumURL(), function(results) {
-            //get the first four image in this album.
-            $.get(getImageInAlbum(results.data[0].id, 1, 4), function(images) {
-                var imgsInSileder = $(".rev_slider >ul > li > div >img");
-                $.each(images.data.photos, function(idx, item) {
-                    imgsInSileder[idx].src = item.images.medium;
+        $(function() {
+            //get the lastest album id
+            $.get(getLastestAlbumURL(), function(results) {
+                //get the first four image in this album.
+                $.get(getImageInAlbum(results.data[0].id, 1, 4), function(images) {
+                    var imgsInSileder = $(".rev_slider >ul > li > div >img");
+                    if (imgsInSileder.size() == 0) {
+                        imgsInSileder = $(".rev_slider >ul > li >img");
+                    }
+                    $.each(images.data.photos, function(idx, item) {
+                        imgsInSileder[idx].src = item.images.medium;
+                    });
                 });
             });
+
         });
 
         function getLastestAlbumURL() {
