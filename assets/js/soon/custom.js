@@ -6,7 +6,9 @@ COMMING SOON PAGE
     * Set your date here  (YEAR, MONTH (0 for January/11 for December), DAY, HOUR, MINUTE, SECOND)
     * according to the GMT+0 Timezone
     **/
-    var launch = new Date(2014, 10, 29, 09, 00);
+
+    var launch = new Date(2014, 10, 29, 18, 00);
+
     /**
     * The script
     **/
@@ -20,30 +22,30 @@ COMMING SOON PAGE
     function setDate(){
         var now = new Date();
         if( launch < now ){
-            days.html('<h1>0</H1><p>Day</p>');
-            hours.html('<h1>0</h1><p>Hour</p>');
-            minutes.html('<h1>0</h1><p>Minute</p>');
-            seconds.html('<h1>0</h1><p>Second</p>');
-            message.html('OUR SITE IS NOT READY YET...');
+            days.html('<h1>0</H1><p>天</p>');
+            hours.html('<h1>0</h1><p>小時</p>');
+            minutes.html('<h1>0</h1><p>分</p>');
+            seconds.html('<h1>0</h1><p>秒</p>');
+            message.html('與其預測未來 不如領導未來');
         }
         else{
             var s = -now.getTimezoneOffset()*60 + (launch.getTime() - now.getTime())/1000;
             var d = Math.floor(s/86400);
-            days.html('<h1>'+d+'</h1><p>Day'+(d>1?'s':''),'</p>');
+            days.html('<h1>'+d+'</h1><p>天'+(d>1?'':''),'</p>');
             s -= d*86400;
 
             var h = Math.floor(s/3600);
-            hours.html('<h1>'+h+'</h1><p>Hour'+(h>1?'s':''),'</p>');
+            hours.html('<h1>'+h+'</h1><p>小時'+(h>1?'':''),'</p>');
             s -= h*3600;
 
             var m = Math.floor(s/60);
-            minutes.html('<h1>'+m+'</h1><p>Minute'+(m>1?'s':''),'</p>');
+            minutes.html('<h1>'+m+'</h1><p>分'+(m>1?'':''),'</p>');
 
             s = Math.floor(s-m*60);
-            seconds.html('<h1>'+s+'</h1><p>Second'+(s>1?'s':''),'</p>');
+            seconds.html('<h1>'+s+'</h1><p>秒'+(s>1?'':''),'</p>');
             setTimeout(setDate, 1000);
 
-            message.html('OUR SITE IS NOT READY YET, BUT WE ARE COMING SOON');
+            message.html('與其預測未來 不如領導未來');
         }
     }
 })(jQuery);
