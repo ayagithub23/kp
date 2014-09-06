@@ -109,6 +109,7 @@ HEADER
 /******************************************************************************************************************************
 RESPONSIVE
 *******************************************************************************************************************************/
+
 @media only screen and (min-width: 741px) {
     h1,#message{
         -webkit-transition: all .3s linear;
@@ -118,6 +119,9 @@ RESPONSIVE
     #message {
         font-size: 1.5em;
     }
+    #layer .transparent-logo{
+    padding: 2% 0 0 2%;
+}
 }
 @media only screen and (max-width: 520px) {
     h1,#message,#timer {
@@ -159,6 +163,9 @@ RESPONSIVE
            -moz-transition: all .3s linear;
                 transition: all .3s linear;
     }
+        #layer .transparent-logo{
+    padding: 2% 0 0 2%;
+}
 }
 @media only screen and (max-width: 740px) {
     .timer_box {
@@ -183,6 +190,9 @@ RESPONSIVE
         -moz-transition: all .3s .3s;
         transition: all .3s .3s;
     }
+    #layer .transparent-logo{
+    padding: 2% 0 0 2%;
+}
 }
 /******************************************************************************************************************************
 ANIMATIONS
